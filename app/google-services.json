@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "691682825222",
+    "project_id": "hanasukotonai",
+    "storage_bucket": "hanasukotonai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691682825222:android:f001ed385c440e84da1f87",
+        "android_client_info": {
+          "package_name": "net.rhyztech.android.hanasukotonai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691682825222-72o2pd3e47loj2rajqdsngr2e0l7qdi6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOglXZ3LptxAup7oo9HBxmXkzJRBDZl7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691682825222-72o2pd3e47loj2rajqdsngr2e0l7qdi6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
