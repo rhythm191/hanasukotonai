@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Hanasukotonai</string>
+    <string name="app_name">1on1話すことない</string>
+    <string name="topic_about_career">キャリアの話をする</string>
+    <string name="topic_about_progress">進捗の話をする</string>
+    <string name="update_button">別の話題にする</string>
 </resources>
