@@ -20,8 +20,8 @@ task clean(type: Delete) {
 }
 
 
-
 ext {
+    coroutineVersion = "1.5.2"
     activityVersion = '1.4.0'
     appCompatVersion = '1.4.0'
     fragmentVersion = '1.4.0'

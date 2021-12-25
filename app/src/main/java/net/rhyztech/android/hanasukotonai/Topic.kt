@@ -1,3 +1,9 @@
 package net.rhyztech.android.hanasukotonai
 
-data class Topic(val titleId: String)
+import com.google.firebase.firestore.DocumentId
+
+data class Topic(
+    @DocumentId
+    val id: String = "",
+    val titleId: String = ""
+)
