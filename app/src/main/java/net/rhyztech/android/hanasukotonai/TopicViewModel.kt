@@ -7,13 +7,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class TopicViewModel @Inject constructor() : ViewModel() {
-
+class TopicViewModel @Inject constructor(private val topicRepository: TopicRepository) : ViewModel() {
 
     private val _topicText: MutableLiveData<String>  = MutableLiveData()
     val topicText: LiveData<String> = _topicText
 
     fun changeTopic() {
-        _topicText.value = "topic_about_progress"
+        val newTopic = topicRepository.getTopic()
+        _topicText.value = newTopic.titleId
     }
 }

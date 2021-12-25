@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class TopicFragment : Fragment() {
 
     private val topicViewModel: TopicViewModel by viewModels()
@@ -25,9 +27,9 @@ class TopicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val topicText = view.findViewById<TextView>(R.id.topicText)
         val packageName = activity!!.packageName
 
+        val topicText = view.findViewById<TextView>(R.id.topicText)
         topicViewModel.topicText.observe(this, { value ->
             val stringId = resources.getIdentifier(value, "string", packageName)
             topicText.text = getString(stringId)
