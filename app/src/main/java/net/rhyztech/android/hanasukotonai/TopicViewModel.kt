@@ -12,12 +12,15 @@ import javax.inject.Inject
 class TopicViewModel @Inject constructor(private val topicRepository: TopicRepository) :
     ViewModel() {
 
-    private val _topicText: MutableLiveData<Topic> =
-        MutableLiveData(Topic("", "topic_about_progress"))
-    val topicText: LiveData<Topic> = _topicText
+    private val defaultTopic = Topic("h4zxbacIgeFiVcwatbVA", "topic_about_progress")
+
+    private val _topic: MutableLiveData<Topic> =
+        MutableLiveData(defaultTopic)
+    val topic: LiveData<Topic> = _topic
 
     suspend fun changeTopic() = viewModelScope.launch {
-        val newTopic = topicRepository.getTopic()
-        _topicText.value = newTopic
+        val newTopic =
+            _topic.value?.let { topicRepository.getAnotherTopic(it) }
+        _topic.value = newTopic ?: defaultTopic
     }
 }
