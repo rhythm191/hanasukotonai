@@ -32,8 +32,8 @@ class TopicFragment : Fragment() {
         val packageName = activity!!.packageName
 
         val topicText = view.findViewById<TextView>(R.id.topicText)
-        topicViewModel.topicText.observe(this, { value ->
-            val stringId = resources.getIdentifier(value, "string", packageName)
+        topicViewModel.topicText.observe(this, { topic ->
+            val stringId = resources.getIdentifier(topic.titleId, "string", packageName)
             topicText.text = getString(stringId)
         })
 

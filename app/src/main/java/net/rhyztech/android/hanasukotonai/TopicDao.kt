@@ -1,21 +1,15 @@
 package net.rhyztech.android.hanasukotonai
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class TopicDao @Inject constructor(private val firestore: FirebaseFirestore) {
 
-    fun getTopics() = flow<Topic> {
+    suspend fun getTopics(): List<Topic> = withContext(Dispatchers.IO) {
         val snapshot = firestore.collection("topics").get().await()
-        val topics = snapshot.toObjects(Topic::class.java)
-        
-        topics.forEach {
-            Log.i(TAG, it.id + it.titleId)
-            emit(it)
-        }
+        return@withContext snapshot.toObjects(Topic::class.java)
     }
 }
