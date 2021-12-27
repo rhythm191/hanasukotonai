@@ -1,5 +1,7 @@
 package net.rhyztech.android.hanasukotonai
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,8 +21,14 @@ class TopicViewModel @Inject constructor(private val topicRepository: TopicRepos
     val topic: LiveData<Topic> = _topic
 
     suspend fun changeTopic() = viewModelScope.launch {
-        val newTopic =
-            _topic.value?.let { topicRepository.getAnotherTopic(it) }
-        _topic.value = newTopic ?: defaultTopic
+        try {
+            val newTopic =
+                _topic.value?.let { topicRepository.getAnotherTopic(it) }
+            _topic.value = newTopic ?: defaultTopic
+
+        } catch (e: Exception) {
+            Log.e(TAG, e.toString())
+            _topic.value = defaultTopic
+        }
     }
 }
