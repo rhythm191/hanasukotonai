@@ -72,6 +72,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
     testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
