@@ -13,7 +13,9 @@
         <TextView
             android:id="@+id/topicText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="104sp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
             android:text="@string/topic_about_career"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
